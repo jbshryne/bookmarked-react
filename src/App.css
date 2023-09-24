@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.Header {
+  background-color: red;
+  height: 80px; 
+
+}
+
+.bookmark-title {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  
+}
+
+
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.bookmarks {
+  background-color: black;
+}

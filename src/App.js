@@ -17,7 +17,7 @@ function App() {
     setFormData(currentForm);
   }
   const handleUpdateChange = (e) => {
-    const currentForm = { ...updateForm };
+    const currentForm =  { ...updateForm };
     currentForm[e.target.name] = e.target.value;
     setUpdateForm(currentForm);
   };
@@ -80,9 +80,9 @@ function App() {
         );
 
         // Clear the edit mode
-        setIsEditing(false);
-        setIdToUpdate('');
-        setUpdateForm({ title: '', url: '' });
+        // setIsEditing(false);
+        // setIdToUpdate('');
+        // setUpdateForm({ title: '', url: '' });
       })
       .catch((error) => {
      
@@ -117,8 +117,8 @@ function App() {
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
-
+  });
+  
   return (
     <div className="App">
       < Header /> 
@@ -130,6 +130,7 @@ function App() {
       </form>
       {data.map((bookmark, i) => {
   return (
+   
 <Bookmark
   data={bookmark}
   key={i}
@@ -138,7 +139,7 @@ function App() {
   isEditing={isEditing}
   handleUpdateBookmark={handleUpdateBookmark}
 
-/>
+/>  
   );
 })}
 {isEditing && (
@@ -157,8 +158,11 @@ function App() {
       onChange={handleUpdateChange}
     ></input>
     <button type='submit'>Edit</button>
+   
   </form>
-)}
+
+) }
+
     </div>
   );
 }
