@@ -1,12 +1,26 @@
-import React from 'react'
+import React from 'react';
 
-const Bookmark = ({data}) => {
-    console.log(data)
+const Bookmark = ({ data, handleDeleteBookmark, setIdToUpdate }) => {
+  const handleDelete = (e) => {
+    const id = e.target.value;
+    return handleDeleteBookmark(id);
+  };
+
+  const handleUpdate = () => {
+    // Call the setIdToUpdate function from props to set the ID for editing
+    setIdToUpdate(data._id);
+  };
+
   return (
-    <div>
-      {data.title}
+    <div className='bookmark'>
+     <a href={data.url} >
+        {data.title}
+     </a>
+      <button onClick={(e) => handleDelete(e)} value={data._id}>X</button>
+      <button onClick={handleUpdate}>Edit</button>
     </div>
-  )
-}
+    
+  );
+};
 
-export default Bookmark
+export default Bookmark;
