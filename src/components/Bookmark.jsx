@@ -11,7 +11,7 @@ const Bookmark = ({ data, handleDeleteBookmark, setIdToUpdate }) => {
   };
 
   return (
-    <div className="bookmark">
+    <div className="bookmark" >
       <a href={data.url}>{data.title}</a>
       <button onClick={(e) => handleDelete(e)} value={data._id}>
         X
