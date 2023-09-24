@@ -111,10 +111,11 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" >
       <Header />
+      <div className="bookmarks-container">
       <form onSubmit={handleAddBookmark}>
-        <h4>Add a new bookmark</h4>
+       <h4>Add a new bookmark</h4>
         <input
           placeholder="website"
           name="title"
@@ -128,7 +129,9 @@ function App() {
           value={addForm.url}
         ></input>
         <button>Add!</button>
+    
       </form>
+      <div className="bookmarks-container">
       {data.map((bookmark, i) => {
         return (
           <Bookmark
@@ -138,10 +141,13 @@ function App() {
             setIdToUpdate={handleSetId}
             isEditing={isEditing}
             handleUpdateBookmark={handleUpdateBookmark}
-          />
+            
+          /> 
         );
-      })}
+      })}</div></div>
       {isEditing && (
+        <div className="modal-overlay">
+        <div className="modal-content">
         <form onSubmit={handleUpdateBookmark}>
           <h4>Edit Bookmark</h4>
           <input
@@ -161,6 +167,9 @@ function App() {
             Nevermind!
           </button>
         </form>
+        </div>
+  </div>
+
       )}
     </div>
   );
