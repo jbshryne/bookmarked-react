@@ -111,65 +111,64 @@ function App() {
   };
 
   return (
-    <div className="App" >
+    <div className="App">
       <Header />
       <div className="bookmarks-container">
-      <form onSubmit={handleAddBookmark}>
-       <h4>Add a new bookmark</h4>
-        <input
-          placeholder="website"
-          name="title"
-          onChange={handleAddChange}
-          value={addForm.title}
-        ></input>
-        <input
-          placeholder="http://"
-          name="url"
-          onChange={handleAddChange}
-          value={addForm.url}
-        ></input>
-        <button>Add!</button>
-    
-      </form>
-      <div className="bookmarks-container">
-      {data.map((bookmark, i) => {
-        return (
-          <Bookmark
-            data={bookmark}
-            key={i}
-            handleDeleteBookmark={handleDeleteBookmark}
-            setIdToUpdate={handleSetId}
-            isEditing={isEditing}
-            handleUpdateBookmark={handleUpdateBookmark}
-            
-          /> 
-        );
-      })}</div></div>
-      {isEditing && (
-        <div className="modal-overlay">
-        <div className="modal-content">
-        <form onSubmit={handleUpdateBookmark}>
-          <h4>Edit Bookmark</h4>
+        <form onSubmit={handleAddBookmark}>
+          <h3>Add a new bookmark</h3>
           <input
             placeholder="website"
             name="title"
-            value={updateForm.title}
-            onChange={handleUpdateChange}
+            onChange={handleAddChange}
+            value={addForm.title}
           ></input>
           <input
             placeholder="http://"
             name="url"
-            value={updateForm.url}
-            onChange={handleUpdateChange}
+            onChange={handleAddChange}
+            value={addForm.url}
           ></input>
-          <button type="submit">Update!</button>
-          <button type="button" onClick={() => setIsEditing(false)}>
-            Nevermind!
-          </button>
+          <button>Add!</button>
         </form>
+        <div className="bookmarks-container">
+          {data.map((bookmark, i) => {
+            return (
+              <Bookmark
+                data={bookmark}
+                key={i}
+                handleDeleteBookmark={handleDeleteBookmark}
+                setIdToUpdate={handleSetId}
+                isEditing={isEditing}
+                handleUpdateBookmark={handleUpdateBookmark}
+              />
+            );
+          })}
         </div>
-  </div>
-
+      </div>
+      {isEditing && (
+        <div className="modal-overlay" onClick={() => setIsEditing(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <form onSubmit={handleUpdateBookmark}>
+              <h3>Edit Bookmark</h3>
+              <input
+                placeholder="website"
+                name="title"
+                value={updateForm.title}
+                onChange={handleUpdateChange}
+              ></input>
+              <input
+                placeholder="http://"
+                name="url"
+                value={updateForm.url}
+                onChange={handleUpdateChange}
+              ></input>
+              <button type="submit">Update!</button>
+              <button type="button" onClick={() => setIsEditing(false)}>
+                Nevermind!
+              </button>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );
