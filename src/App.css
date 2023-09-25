@@ -1,93 +1,61 @@
 .App {
   text-align: center;
-
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-image: url(./images/background.jpg);
+  background-size: cover;
+  height: 100vh;
 }
 
 .Header {
-  height: 80px; 
+  height: 80px;
+  font-weight: bold;
   background-image: url(./images/header.jpg);
+  background-size: cover;
+}
+
+input {
+  width: 150px;
 }
 
 .bookmark-title {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  
-}
-
-
-.bookmarks {
-  background-color: black;
 }
 
 .bookmark {
-  border: 1px solid #ccc;
-  padding: 5px;
-  margin: 5px;
-  align-items: center;
-  background-image: url(./images/header.jpg);
-  width: 200px; 
-  height: 50px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: space-between;
+  border: 1px solid #181818;
+  padding: 10px;
+  margin: 5px;
+  font-weight: bold;
+  background-image: url(./images/header.jpg);
+  background-size: 300%;
+  width: 200px;
+  height: 50px;
+  box-shadow: 4px 4px 4px rgba(79, 48, 48, 0.507);
 }
 
 .bookmark a {
   text-decoration: none;
-  color: #332525;
-  transition: color 0.3s ease; 
+  color: #000000;
+  transition: color 0.3s ease;
   font-size: large;
-  text-shadow: 2px 2px 4px rgba(79, 48, 48, 0.6);
-  
+  /* text-shadow: 2px 2px 4px rgba(79, 48, 48, 0.6); */
 }
 
-
 .bookmark a:hover {
-  color: white; 
+  color: white;
   text-decoration: underline;
 }
 
 .bookmarks-container {
   display: flex;
-  flex-direction: column; /* Ensure bookmarks stack vertically */
-  align-items: center; /* Vertically center bookmarks */
-  justify-content: center; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
 }
 
 .modal-overlay {
@@ -96,16 +64,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; 
+  z-index: 1000;
 }
-
 
 .modal-content {
   background-image: url(./images/header.jpg);
+  background-size: 200%;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(54, 46, 46, 0.5);
   padding: 20px;
@@ -113,7 +81,7 @@
   width: 100%;
   text-decoration: none;
   color: #332525;
-  transition: color 0.3s ease; 
+  transition: color 0.3s ease;
   font-size: large;
-  text-shadow: 2px 2px 4px rgba(79, 48, 48, 0.6);
+  /* text-shadow: 2px 2px 4px rgba(79, 48, 48, 0.6); */
 }
