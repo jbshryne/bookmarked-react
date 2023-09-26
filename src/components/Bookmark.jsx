@@ -1,13 +1,14 @@
 import React from "react";
 
-const Bookmark = ({ data, handleDeleteBookmark, setIdToUpdate }) => {
-  const handleDelete = (e) => {
-    const id = e.target.value;
-    return handleDeleteBookmark(id);
+const Bookmark = ({ data, handleDeleteBookmark, handleSetId }) => {
+  const id = data._id;
+
+  const handleClickDelete = () => {
+    handleDeleteBookmark(id);
   };
 
-  const handleUpdate = () => {
-    setIdToUpdate(data._id);
+  const handleClickUpdate = () => {
+    handleSetId(id);
   };
 
   return (
@@ -16,10 +17,8 @@ const Bookmark = ({ data, handleDeleteBookmark, setIdToUpdate }) => {
         <a href={data.url}>{data.title}</a>
       </div>
       <div>
-        <button onClick={handleUpdate}>Edit</button>
-        <button onClick={(e) => handleDelete(e)} value={data._id}>
-          X
-        </button>
+        <button onClick={handleClickUpdate}>Edit</button>
+        <button onClick={handleClickDelete}>X</button>
       </div>
     </div>
   );

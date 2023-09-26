@@ -107,7 +107,9 @@ function App() {
         } else {
         }
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log("Error deleting:", error);
+      });
   };
 
   return (
@@ -137,9 +139,7 @@ function App() {
                 data={bookmark}
                 key={i}
                 handleDeleteBookmark={handleDeleteBookmark}
-                setIdToUpdate={handleSetId}
-                isEditing={isEditing}
-                handleUpdateBookmark={handleUpdateBookmark}
+                handleSetId={handleSetId}
               />
             );
           })}
@@ -149,7 +149,7 @@ function App() {
         <div className="modal-overlay" onClick={() => setIsEditing(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <form onSubmit={handleUpdateBookmark}>
-              <h3>Edit Bookmark</h3>
+              <h3>Edit bookmark</h3>
               <input
                 placeholder="website"
                 name="title"
